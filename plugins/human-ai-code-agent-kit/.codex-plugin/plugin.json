@@ -1,0 +1,22 @@
+{
+  "name": "human-ai-code-agent-kit",
+  "version": "1.2.0+codex.1",
+  "description": "AI Code Agent workflows for implementation, experiments, evaluation, compute operations, and read-only codebase investigation.",
+  "author": {
+    "name": "mux"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Human-AI Code Agent Kit",
+    "shortDescription": "Research implementation and operations workflows.",
+    "longDescription": "Run project-defined implementation, experiment, evaluation, compute operations, and codebase investigation workflows under repository-local contracts.",
+    "developerName": "mux",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "defaultPrompt": [
+      "Implement this task under the repository rules.",
+      "Check the current experiment status.",
+      "Create a read-only codebase snapshot."
+    ]
+  }
+}

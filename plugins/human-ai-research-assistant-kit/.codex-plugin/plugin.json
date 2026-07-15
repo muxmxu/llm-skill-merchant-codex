@@ -1,0 +1,22 @@
+{
+  "name": "human-ai-research-assistant-kit",
+  "version": "1.1.0+codex.1",
+  "description": "AI Research Assistant workflows for discussion, explanation, research logs, decisions, tasks, references, literature surveys, and presentations.",
+  "author": {
+    "name": "mux"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Human-AI Research Assistant Kit",
+    "shortDescription": "Research thinking, writing, and dispatch workflows.",
+    "longDescription": "Transform informal research into logs, decisions, implementation tasks, references, literature surveys, presentations, and evidence-grounded discussions.",
+    "developerName": "mux",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "defaultPrompt": [
+      "Help me pressure-test this research idea.",
+      "Turn these notes into a research decision.",
+      "Prepare an implementation task from this decision."
+    ]
+  }
+}

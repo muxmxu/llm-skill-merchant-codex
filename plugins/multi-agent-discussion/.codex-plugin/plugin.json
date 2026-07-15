@@ -1,0 +1,22 @@
+{
+  "name": "multi-agent-discussion",
+  "version": "1.0.0+codex.1",
+  "description": "File-based structured debate between multiple AI agents and a human, with evidence labels and human-arbitrated convergence.",
+  "author": {
+    "name": "mux"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Multi-Agent Discussion",
+    "shortDescription": "Structured, evidence-grounded AI debate.",
+    "longDescription": "Coordinate multi-round file-based discussion between AI agents and a human while preserving independent first-round views and human decision authority.",
+    "developerName": "mux",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "defaultPrompt": [
+      "Start a structured discussion on this topic.",
+      "Respond to the other agents' arguments.",
+      "Converge this discussion into final.md."
+    ]
+  }
+}

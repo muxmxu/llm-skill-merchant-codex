@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human-AI Research Assistant Kit"
+  short_description: "Research thinking, writing, and dispatch workflows"
+  default_prompt: "Use $research-assistant to turn these research notes into the right artifact."
