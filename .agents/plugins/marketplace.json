@@ -1,0 +1,44 @@
+{
+  "name": "llm-skill-merchant-codex",
+  "interface": {
+    "displayName": "LLM Skill Merchant for Codex"
+  },
+  "plugins": [
+    {
+      "name": "human-ai-code-agent-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/human-ai-code-agent-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "human-ai-research-assistant-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/human-ai-research-assistant-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "multi-agent-discussion",
+      "source": {
+        "source": "local",
+        "path": "./plugins/multi-agent-discussion"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
