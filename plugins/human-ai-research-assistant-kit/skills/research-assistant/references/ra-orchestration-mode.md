@@ -1,5 +1,15 @@
 # Research Assistant Orchestration Mode for Codex
 
+## Contents
+
+- Mode statement
+- Tier-1 boundary for execution
+- Clarification and planning
+- Dispatch discipline
+- Quality defaults
+- Research-specific boundaries
+- Optional workspace dispatch table
+
 ## Mode statement
 
 For non-trivial work, the main session coordinates a six-phase loop:
@@ -16,6 +26,25 @@ For non-trivial work, the main session coordinates a six-phase loop:
 Small requests stay in the main session. If collaboration tools are absent or
 the units are tightly coupled, run the same phases serially without treating
 that as a degraded result.
+
+## Tier-1 boundary for execution
+
+For non-trivial execution or supervision, the main session is the tier-1
+orchestrator, not an extra implementer. It may clarify, plan, dispatch, perform
+necessary read-only source verification, run lightweight acceptance checks,
+and transfer approved artifacts without changing their bytes. It does not
+modify code, perform production execution, or duplicate an assigned endpoint.
+
+- Treat an implementation-assigned tmux code-agent session as an
+  implementation-only endpoint for that assignment. Do not concurrently
+  repurpose it for recon. An idle or separately assigned code agent may fulfill
+  a bounded Codebase Snapshot request.
+- Keep task authoring, implementation, and independent review in distinct
+  roles. A role may be serial when slots are unavailable, but tier-1 still
+  does not absorb the implementation assignment.
+- Report the collaboration interface actually available. If
+  `collaboration.spawn_agent` exposes no model or effort selector, do not
+  claim that a particular model, tier, or reasoning effort was assigned.
 
 ## Clarification and planning
 
@@ -41,6 +70,8 @@ that as a degraded result.
   work.
 - Do not invent model, effort, or custom-agent controls. Use them only when the
   live dispatch interface explicitly exposes them.
+- Follow `task-dispatch.md` for authority, dispatch manifests, handshakes,
+  required gates, watcher ownership, and heartbeat behavior.
 
 ## Quality defaults
 
@@ -53,6 +84,12 @@ Every substantive artifact receives an adversarial check before delivery:
 - Label unsupported statements as hypotheses, assumptions, or open questions.
 - Keep a rerunnable trace for tabular or numeric transformations.
 
+Use a distinct reviewer when independent review is required. If reviewer
+tooling is unavailable, record the independent-review gate as `NOT RUN`. A
+main-session self-check is labeled `self-review` and is not silently equivalent
+to independent review. Gate release and waiver rules live in
+`task-dispatch.md`.
+
 Limit rework to two rounds for the same finding. Escalate a persistent
 disagreement to the human instead of looping.
 
@@ -62,7 +99,8 @@ disagreement to the human instead of looping.
   reasoning, draft bounded sections, or review artifacts; they do not silently
   choose the research direction.
 - Preserve the derivation chain from research log to decision, reference, and
-  task. Parallel production never collapses these artifact types.
+  task for research-direction or claim-changing work. Parallel production never
+  collapses these artifact types.
 - Repository and workspace contracts such as `ROLE.txt`,
   `RESEARCH-CONTEXT.md`, task artifacts, and writing rules bind every agent.
 - GPU work and other exclusive resources remain serial even when document and

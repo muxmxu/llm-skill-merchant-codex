@@ -49,3 +49,40 @@
 
 <!-- Where multi-agent/human discussions are archived; per-agent file
      conventions. -->
+
+## Dispatch & code agents
+
+<!-- Optional; required only when dispatch is used.
+
+Contracts:
+- dispatch contract path
+- executor contract path
+
+Delivery modes:
+- bus repo + remote, if used
+- authenticated human-approved direct transports + allowed roots/APIs
+
+Handoff ledger:
+- append-only dispatch-manifest location + manifest-id convention
+
+Endpoints:
+- endpoint id; address/session; transport; harness; assignment state
+
+Authentication:
+- trusted main-conversation or authenticated human-message event references
+
+Artifact paths:
+- ACK, completion report, gate record, and result-signal conventions for each mode
+
+Safe kickoff:
+- native argv or structured API that carries only the allowlisted payload from
+  task-dispatch.md; never shell source
+
+Watcher:
+- watcher-owner convention
+- structured/literal-input nudge transport + allowlisted token ids
+- readiness source proving the pane is an agent prompt, never a shell
+
+Execution workspace:
+- batch-directory and branch conventions
+-->

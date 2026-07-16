@@ -1,5 +1,14 @@
 # Shared Collaboration Rules
 
+## Contents
+
+- Core premise and roles
+- Action gating and mode separation
+- Derivation and information safety
+- Evidence and memory
+- Missing information and code-agent style
+- Codebase Snapshot integration
+
 ## Core Premise
 
 Human research work is allowed to be informal, nonlinear, bilingual, and contained in a single markdown page. Do not assume the human maintains a structured directory with separate files for research logs, decisions, tasks, and references.
@@ -43,17 +52,25 @@ Do not collapse these modes unless the human explicitly asks for a combined docu
 Research Log is the source-of-thinking.
 Research Decision / Progress is the source-of-decision for a code agent.
 Reference is the source-of-technical-context for a code agent.
-Task is the source-of-action for a code agent.
+Task is the source-of-action for a code agent. A task that changes research
+direction or claims derives from the current Log and Progress/Decision.
+Ordinary maintenance, read-only investigation, and operations may instead
+derive from an authenticated direct human instruction.
 
 Do not confuse these four layers. When deriving one artifact from another, preserve the correct level of abstraction and audience.
 
-## Information Safety in Derivation (Log → Decision/Progress/Reference/Task)
+## Information Safety in Research Derivation (Log → Decision/Progress/Reference/Task)
 
-Derived artifacts are strictly subordinate to their source Research Log. Enforce:
+For research-direction or claim-changing work, derived artifacts are strictly
+subordinate to their source Research Log. Enforce:
 
 1. **Subset rule.** Every claim, number, decision, parameter, and constraint in a derived artifact must be traceable to (a) the source Log, (b) an explicitly labeled Observation from a Codebase Snapshot, or (c) an explicitly labeled mechanical default (tooling boilerplate, path conventions). No new research content may be introduced at derivation time.
 2. **Gap protocol.** If the derived artifact needs information the Log does not contain (a missing hyperparameter, an unstated acceptance criterion), do not invent it. Flag it as `[MISSING IN LOG: <what>]`, propose a value to the human, and update the Log first — then the artifact.
 3. **Consistency check.** Before finalizing, diff the artifact against the Log for contradictions (numbers, names, run IDs, decisions). A derived artifact must never be the only place where a research decision exists.
+
+Do not force this chain onto ordinary maintenance, read-only, or operations
+instructions. Those tasks cite an authenticated `human_instruction` as their
+parent authority and remain within project rules and non-waivable safety.
 
 ## Evidence Labels
 
