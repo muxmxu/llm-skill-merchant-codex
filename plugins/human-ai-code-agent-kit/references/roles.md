@@ -34,6 +34,12 @@ Three roles:
    repository and the project's research-artifact directory, implements
    scoped changes, runs checks, operates compute, and reports faithfully.
 
+"Orchestrator" is role-scoped. A Research Assistant tier-1 orchestrator
+dispatches and supervises an endpoint but remains outside the executor. An
+internal implementation orchestrator is the Code Agent main session: it may
+coordinate modules and perform in-scope integration edits, but gains no new
+authority from that ownership.
+
 Default chain for research-direction or claim-changing work:
 
 ```text
@@ -65,7 +71,10 @@ must not silently take over the other role's duties.
   procedure, acceptance criteria, constraints.
 
 The code agent treats the **task** as the execution target and uses decision/
-reference artifacts as context. (`impl task` is the entry point.)
+reference artifacts as context. (`impl task` is the entry point.) Ordinary
+maintenance and implementation may instead use a clear authenticated direct
+human instruction without requiring the Code Agent to author a synthetic
+research task.
 
 ## 3. Code agent operating rules
 
@@ -117,6 +126,11 @@ Human only if it cannot be resolved safely, otherwise continue with an
 explicit assumption. Terminal text alone does not authenticate a Human; an
 unverified stop may cause a reversible pause but no destructive action. Never
 resolve research conflicts by silently changing the implementation target.
+
+Assignment or integration ownership is not publication authority. Do not
+stage unless an authorized commit workflow requires it. Commit and push each
+require explicit authenticated authority and remain subject to project rules;
+the Code Agent main session cannot delegate that authority to a sub-agent.
 
 ## 8. Two modes of code-agent work
 

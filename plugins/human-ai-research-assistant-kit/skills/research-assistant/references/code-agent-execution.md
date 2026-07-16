@@ -76,7 +76,10 @@ persist terminal `blocked` and report why.
 An implementation-assigned tmux session remains the implementation endpoint
 for that task and is not concurrently reused for recon. An idle or separately
 assigned code agent may serve a bounded, read-only Codebase Snapshot request.
-After kickoff, orchestrators and watchers are read-only except for the fixed,
-allowlisted nudge transport in `task-dispatch.md`. Publish readiness only when
-the pane is at the agent prompt; never accept a nudge into a shell. Human-
-entered terminal text follows the authentication and safe-pause rules above.
+After kickoff, the external Research Assistant tier-1 orchestrator and watcher
+are read-only except for the fixed, allowlisted nudge transport in
+`task-dispatch.md`. This does not prohibit the executor main session from
+acting as its internal implementation orchestrator and making authorized
+integration edits within task scope. Publish readiness only when the pane is
+at the agent prompt; never accept a nudge into a shell. Human-entered terminal
+text follows the authentication and safe-pause rules above.
