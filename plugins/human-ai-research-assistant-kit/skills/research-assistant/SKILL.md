@@ -33,7 +33,7 @@ Never collapse these layers unless the human explicitly asks for a combined arti
 
 **Production delegation.** Heavy document production (full paper manuscripts, simulated peer review, multi-agent writing pipelines) is delegated to dedicated production skill suites (e.g. academic-research-skills) rather than rebuilt in this kit. This kit owns the evidence layer: research logs remain the source of truth, it prepares the evidence pack going in, and it checks the returned product against the log under the subset rule (`references/shared-collaboration-rules.md`).
 
-**Execution closure (dispatch).** The chain above ends at artifacts. When the human asks for the tasks to actually be *executed*, the assistant carries them through the dispatch pipeline — review gate → delivery bus → code-agent endpoint → supervision → results back to the human — per `references/task-dispatch.md`. The executing session's counterpart contract is `references/code-agent-execution.md`. Endpoints, the bus repo, and the nudge token are workspace facts and live in `RESEARCH-CONTEXT.md` (`## Dispatch & code agents`, optional section). This closes the loop: Log → Progress → Task → impl/eval/exp → results → next Log.
+**Execution closure (dispatch).** When the human asks for a task to be *executed*, the assistant carries it through review → auditable bus or explicitly approved direct transport → code-agent endpoint → supervision → results, per `references/task-dispatch.md`. The executor contract is `references/code-agent-execution.md`; endpoint and transport facts live in `RESEARCH-CONTEXT.md` (`## Dispatch & code agents`). Research-direction or claim-changing work uses Log → Progress → Task. Ordinary maintenance, read-only, and operations tasks may cite an authenticated human instruction directly; they do not need a fabricated research log.
 
 The skill has eight modes — two dialogic, the rest artifact-producing:
 
@@ -59,10 +59,15 @@ Workspace facts (vault paths, literature library, note spaces, code repos) live 
 For a non-trivial task that benefits from decomposition, the main Codex
 session runs a clarify → plan → decompose → dispatch → verify → report loop.
 Use bounded sub-agents only when live collaboration tools are available and
-the work is genuinely independent. Otherwise execute the same phases in the
-main session. Methodology: `references/ra-orchestration-mode.md`. Do not
+the work is genuinely independent. For artifact-only work, run the same phases
+serially in the main session when delegation is unavailable; work assigned to
+an external implementation endpoint stays there. Methodology:
+`references/ra-orchestration-mode.md`. Do not
 invent per-agent model or effort controls that the live runtime does not
-expose.
+expose. For non-trivial execution or supervision, the main session stays in
+the coordinator role: implementation endpoints implement, while Codex
+sub-agents may draft, review, and audit. Load `references/task-dispatch.md`
+for auditable handoff, direct-instruction reconciliation, and gate rules.
 
 ## Mode Selection
 

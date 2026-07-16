@@ -7,6 +7,15 @@ research-workspace root.
 
 Marker: first line of the doc is `<!-- runbook-contract: research-context v1 -->`.
 
+## Contents
+
+- What the doc is and is not
+- Doc resolution
+- Required and optional sections
+- Section semantics
+- Genericity rule
+- Init procedure
+
 ## What the doc is (and is not)
 
 - An **AI-agnostic resource map**: static, human-approved facts about where
@@ -59,15 +68,31 @@ skill reads it, it does not parse it mechanically.
 ```
 
 Required only by the dispatch protocol (`task-dispatch.md` /
-`code-agent-execution.md`); other modes ignore it. It must name: the
-**delivery bus** (the git repo task batches and completion reports travel
-through, with its remote), the **endpoints** (each executing code-agent
-session: transport — e.g. remote tmux over SSH, or local sub-agent —
-address/session name, and which model/harness runs there), the **nudge
-token** (the single string a foreign session may write to resume a stalled
-endpoint; everything else is read-only), and a pointer to the execution
-workspace conventions (batch dir naming, branch naming). Dispatch requested
-but the section missing → ask the human; never improvise endpoints.
+`code-agent-execution.md`); other modes ignore it. It must define:
+
+- **contracts** — paths to both `task-dispatch.md` and
+  `code-agent-execution.md`; dispatch records bind each path, version, and exact
+  SHA-256;
+- **delivery modes** — bus configuration when used, plus every authenticated
+  human-approved direct transport and its allowed roots or structured API;
+- **handoff ledger** — append-only manifest location and identifier
+  convention;
+- **endpoints** — address/session, transport, harness, and assignment state;
+- **authentication** — trusted main-conversation or authenticated
+  human-message event references accepted for approval and overrides;
+- **artifact paths** — acknowledgement, completion-report, gate-record, and
+  result-signal conventions for bus and direct modes;
+- **safe kickoff** — a structured argv/API mechanism that carries only the
+  fixed allowlisted payload from `task-dispatch.md`, never shell source;
+- **watcher** — watcher ownership plus the structured/literal-input nudge
+  transport, allowlisted token ids, readiness check, and rule that a nudge may
+  reach only an agent prompt, never a shell;
+- **execution workspace** — batch-directory and branch conventions.
+
+A bus is the default when configured, but it is not mandatory for a direct
+transport explicitly approved by authenticated human authority. Dispatch
+requested but this section or a required field is missing → ask the human;
+never improvise endpoints, transport, or authority.
 
 ## Section semantics
 

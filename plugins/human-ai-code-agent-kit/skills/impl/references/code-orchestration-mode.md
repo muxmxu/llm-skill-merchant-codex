@@ -8,6 +8,10 @@ authorizes sub-agent orchestration for such large tasks unless a
 higher-priority instruction forbids it. Keep small or tightly coupled tasks
 in the normal single-thread workflow.
 
+This mode applies when the current Codex session is itself the implementation
+agent. It does not authorize a research-assistant tier-1 orchestrator to absorb
+work assigned to a separate tmux or other code-agent endpoint.
+
 ## Phases
 
 1. **Decompose** - define bounded modules, owner paths, shared interfaces,

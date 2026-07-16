@@ -2,69 +2,65 @@
 
 ## Metadata
 - task_id: `YYYY-MM-DD_<snake_case_title>`
-- stage: `Stage I | II | III`
-- status: `active | in_progress | blocked | completed`
+- revision: `1`
+- stage: `<Stage I | Stage II | Stage III | project-defined stage | n/a>`
+- status: `active`
 - owner: `code_agent`
-- parent_decision: `progress/YYYY-MM-DD_<decision_dir>/decision.md`
+- parent_authority_kind: `<log | progress | decision | human_instruction>`
+- parent_authority_ref: `<exact path | authenticated-event-id>`
+- parent_authority_revision: `<positive integer | n/a>`
+- parent_authority_sha256: `<64-character lowercase hex>`
+- supersedes: `<task_id@revision | none>`
 
 ## Objective
 <One sentence. What the agent must achieve, not how.>
 
 ## Context
-<2–5 sentences of relevant background. Link prior progress entries as
-`progress/YYYY-MM-DD_<dir>/`. Do NOT re-explain things the agent can read from
-the linked refs.>
+<2-5 sentences of relevant background. Link the parent authority or references. Do not re-explain material that the agent can read from linked refs.>
 
 ## Scope
 **In scope**
 - <concrete bullet>
-- <concrete bullet>
 
 **Out of scope**
-- <concrete bullet>
 - <concrete bullet>
 
 ## Inputs
 Files the agent must read (priority order, strongest first):
 
-1. `path/to/ref.md` — <one-line why>
-2. `path/to/ref.md` — <one-line why>
+1. `<path/to/ref.md>` — <one-line why>
+2. `<path/to/ref.md>` — <one-line why>
 
 Files the agent must inspect (codebase):
-- `source/.../file.py`
-- ...
+- `<source/.../file.py>`
 
 Checkpoints / artifacts:
-- `train_data/<run_id>/checkpoints/best/model.pt` — <purpose>
+- `<path/to/artifact>` — <purpose>
 
 ## Deliverables
 Exact paths and contents the agent must produce:
 
-- `progress/YYYY-MM-DD_<dir>/findings.md` — <required sections>
-- `progress/YYYY-MM-DD_<dir>/diagnostics/<name>.json` — <schema hint>
-- `progress/YYYY-MM-DD_<dir>/scripts/<name>.py` — <purpose; reproducibility>
+- `<path/to/output.md>` — <required sections or content>
+- `<path/to/output.json>` — <schema hint>
+- `<path/to/script.py>` — <purpose and reproducibility requirement>
 
 ## Procedure
-Ordered steps. Each step is a self-contained unit; agent reports completion per
-step.
+Ordered steps. Each step is a self-contained unit; agent reports completion per step.
 
 1. **<Step name>** — <what to do, what to output>
 2. **<Step name>** — <what to do, what to output>
-3. ...
+3. **<Step name>** — <what to do, what to output>
 
 ## Acceptance Criteria
-Objective, checkable conditions. Every item must be verifiable from the
-deliverables alone.
+Objective, checkable conditions. Every item must be verifiable from the deliverables alone.
 
 - [ ] <condition 1>
 - [ ] <condition 2>
 - [ ] <condition 3>
 
 ## Constraints
-- <hard constraint, e.g. "no retraining", "no model code changes">
 - <hard constraint>
 
 ## Open Questions / Assumptions
-<Anything the agent is allowed to assume, or flagged as unresolved.>
-- Assumption: <...>
-- Question: <agent must answer this in findings.md>
+- Assumption: <what the agent may take as given>
+- Question: <what the agent must answer in deliverables>
