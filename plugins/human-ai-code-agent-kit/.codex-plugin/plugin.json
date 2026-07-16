@@ -1,6 +1,6 @@
 {
   "name": "human-ai-code-agent-kit",
-  "version": "1.2.0+codex.1",
+  "version": "1.2.0+codex.2",
   "description": "AI Code Agent workflows for implementation, experiments, evaluation, compute operations, and read-only codebase investigation.",
   "author": {
     "name": "mux"

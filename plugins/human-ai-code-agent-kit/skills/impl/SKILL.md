@@ -1,6 +1,6 @@
 ---
 name: impl
-description: "Implementation workflow for the AI Code Agent, driven by the project's development-rules doc (e.g. ProjectDevelopRule.md): take in and execute implementation task artifacts written by the human or research assistant, check the working tree for compliance with project rules before committing, and init a development-rules doc for a new project. Trigger when the user hands over a task document or asks to implement a specified change following project conventions; asks whether the current changes comply with project rules, are safe to commit, or follow test/commit conventions; or wants to set up development rules in a new project. Also trigger on explicit subcommands: impl init | task | check. suit-for-code-agent"
+description: "Implementation workflow for the AI Code Agent, driven by the project's development-rules doc (e.g. ProjectDevelopRule.md): execute a finalized implementation task or a clear direct human implementation instruction, use auditable multi-agent orchestration for large modular changes, check working-tree compliance before committing, and init development rules for a new project. Trigger when the user hands over a task document, directly asks to implement a specified change, asks to orchestrate a large implementation, asks whether current changes are safe to commit, or requests impl init | task | check. suit-for-code-agent"
 ---
 
 # impl — implementation workflow
@@ -17,15 +17,38 @@ names it). Loose contract: read the whole doc (plus CLAUDE.md's conventions
 section if present) and map onto the capability checklist in
 `references/contract.md`. Doc missing → offer `impl init`.
 
-## Orchestration for large tasks
+## Accepted implementation instructions
 
-A `task` that is large enough to decompose (a full implementation, a
-migration, or a large evaluation sweep) can run in **Code Orchestration
-Mode**. The main Codex session decomposes the work into bounded modules,
-dispatches independent modules, verifies each result independently, then
-performs one integration pass and sends one completion report. Small,
-clearly scoped tasks stay single-thread. See
-`references/code-orchestration-mode.md`.
+Execute either of these authenticated inputs without inventing another
+artifact:
+
+- an implementation `Task` artifact, with its referenced decisions and
+  references as context; or
+- a direct authenticated implementation instruction that already defines
+  scope, deliverables, constraints, non-goals, and acceptance criteria.
+
+If a direct instruction lacks a material execution boundary, ask for that
+boundary; do not fabricate a `Task` merely to route the work. Research-
+direction or claim-changing work still follows the artifact chain in
+`../../references/roles.md`.
+
+Before any side effect from a direct instruction, record its trusted user-
+message event id when exposed. Otherwise assign a run-local instruction id.
+Set revision `1` and compute SHA-256 over the preserved exact instruction
+bytes. A later content change creates a new revision and hash. This identity
+is an execution record, not a fabricated research `Task`.
+
+## Orchestration for large implementation tasks
+
+A large implementation with multiple independent modules may run in **Code
+Orchestration Mode**. The executor main decomposes bounded modules, dispatches
+independent implementation work, verifies attempts, then performs the final-
+tree and end-to-end checks. Small or tightly coupled work stays single-thread.
+See `references/code-orchestration-mode.md`.
+
+Do not use `impl` orchestration for experiment launches, evaluation sweeps,
+compute changes, or other operations. Name the mode switch and use `exp`,
+`eval`, or `ops` under the applicable runbook.
 
 ## Safety red lines (non-negotiable)
 
@@ -37,17 +60,29 @@ clearly scoped tasks stay single-thread. See
    seems to require touching one, stop and surface the conflict.
 3. Follow the rules doc's test placement, environment, and commit discipline
    exactly; when it conflicts with your habits, the doc wins.
-4. Never commit without running `check` (below) on the working tree.
+4. Never commit without running `check` (below) against the final working
+   tree after all writers stop.
+5. Main-session ownership is responsibility, not authorization. Staging,
+   committing, and pushing require authority from the authenticated
+   instruction and project rules. Do not stage unless a commit workflow is
+   authorized; commit and push each require separate explicit authority.
+   Sub-agents never stage, commit, push, operate remote systems, expand scope,
+   or claim parent completion. They delegate further only when the executor
+   main explicitly registers the nested assignment under Code Orchestration
+   Mode; they cannot self-authorize it.
 
 ## Subcommands
 
 ### task
-Execute an implementation task artifact (see roles.md §2: the task is the
-execution target; decisions/references are context).
+Execute an accepted implementation instruction. For a `Task` artifact, see
+roles.md §2; decisions/references are context. For a direct authenticated
+instruction, preserve its identity and exact approved scope in the worklog or
+session ledger described by Code Orchestration Mode.
 
-1. Read the task artifact fully; extract scope, deliverables, exact paths,
-   constraints, non-goals, acceptance criteria; read the referenced
-   decision/reference artifacts.
+1. Read the instruction fully; extract scope, deliverables, exact paths,
+   constraints, non-goals, and acceptance criteria. Preserve a Task's supplied
+   identity. For a direct instruction, create the content-addressed identity
+   above. Read referenced decision/reference artifacts.
 2. Inspect the current code before changing it (roles.md §3).
 3. Ambiguity or conflict with repo reality → report per roles.md §7 before
    writing code (plan-then-execute gating, roles.md §4).
