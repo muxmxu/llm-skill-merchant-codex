@@ -29,7 +29,7 @@ Research Log   → human-facing       → source-of-thinking         (preserve u
    └─► Academic Presentation → external-audience-facing → source-of-talk (audience-ready slides: outline, per-slide content, diagram specs)
 ```
 
-Never collapse these layers unless the human explicitly asks for a combined artifact. When deriving one artifact from another, preserve the correct audience and abstraction level.
+Never collapse these layers for research-direction or claim-changing work unless the human explicitly asks for a combined artifact. When deriving one artifact from another, preserve the correct audience and abstraction level.
 
 **Production delegation.** Heavy document production (full paper manuscripts, simulated peer review, multi-agent writing pipelines) is delegated to dedicated production skill suites (e.g. academic-research-skills) rather than rebuilt in this kit. This kit owns the evidence layer: research logs remain the source of truth, it prepares the evidence pack going in, and it checks the returned product against the log under the subset rule (`references/shared-collaboration-rules.md`).
 
@@ -38,7 +38,7 @@ Never collapse these layers unless the human explicitly asks for a combined arti
 The skill has eight modes — two dialogic, the rest artifact-producing:
 
 1. Research Discussion: dialogic colleague / brainstorming / sparring mode. Produces better thinking, not a document. Upstream of the other four.
-2. Research Log Writing: human-facing research record. A messy braindump goes through the mandatory Braindump-to-Log Protocol (structure confirmation → exemplar anchoring → register fidelity → 【AI 补写】 markers → self-check) in `references/research-log-writing.md`.
+2. Research Log Writing: human-facing research record. By default it is a source-constrained transformation: it preserves supplied propositions, uncertainty, chronology, and user-defined provenance markers without adding research reasoning. Only an explicit request for analysis, explanation, or new AI judgment opens AI synthesis; its additions use the workspace's literal provenance marker. The two paths are in `references/research-log-writing.md`.
 3. Research Decision Writing: code-agent-facing progress or decision note.
 4. Task Writing: strict implementation-agent task artifact.
 5. Reference Writing: cleaned technical reference derived from research logs.
@@ -75,7 +75,7 @@ Select exactly one primary mode unless the user explicitly asks for a combined a
 
 - Use Research Discussion when the user is thinking out loud, brainstorming, interpreting an experiment result, pressure-testing a hypothesis, finding papers / APIs / prior art, or exploring ideas before committing them to an artifact. This is the default when the user is reasoning rather than requesting a document. It produces no file by default; offer to capture into a writing mode when thinking converges.
 - Use Concept Explainer when the user does not understand a concept, formula, or term and wants to be taught it. Retrieval of a fact stays in Research Discussion (Retrieve = "帮我查"); teaching until understood is Concept Explainer (= "教懂我"). No file by default; a concept card only on explicit request.
-- Use Research Log Writing when the user wants to preserve reasoning, uncertainty, evidence, failed ideas, paper notes, experiment interpretation, or Q&A-like thinking.
+- Use Research Log Writing when the user wants to preserve reasoning, uncertainty, evidence, failed ideas, paper notes, experiment interpretation, or Q&A-like thinking. Route it to **source-constrained transformation** by default, including style-only rewrites and fresh logs assembled from supplied notes. Route it to **explicit AI synthesis** only when the user expressly asks the assistant to analyze, explain, infer, exclude alternatives, recommend, or add an AI judgment. Do not infer that permission from a request to “write a log”.
 - Use Research Decision Writing when the user wants to package human research decisions for a code agent or implementation agent.
 - Use Task Writing when the user wants to assign concrete work to a code agent, implementation agent, or coding assistant.
 - Use Reference Writing when the user wants to convert informal research logs into clean implementation-facing documents such as model design, loss design, dataset protocol, diagnostic reference, or training design.
@@ -151,9 +151,12 @@ Use the language requested by the user. By default:
 
 ## Output Policy
 
-For research logs, progress notes, decisions, references, and code-agent tasks, default to inline markdown code blocks. Do not create downloadable files, canvas artifacts, or direct file edits unless the human explicitly asks for a file, artifact, canvas, or direct file editing.
-
-After the block, provide a suggested filename or path if appropriate.
+For a human-facing research log, return ordinary markdown prose by default.
+Its mode-specific delivery rules take precedence: do not add a code block, an
+English reporting template, or a filename/path suggestion unless the human asks
+for one. Progress notes, decisions, references, and code-agent tasks may use
+their own mode-appropriate structure. Do not create downloadable files, canvas
+artifacts, or direct file edits unless the human explicitly asks for them.
 
 For task-writing, use the strict template and rules in `references/task-writing.md`.
 
