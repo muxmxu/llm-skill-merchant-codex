@@ -80,7 +80,7 @@ Select exactly one primary mode unless the user explicitly asks for a combined a
 - Use Task Writing when the user wants to assign concrete work to a code agent, implementation agent, or coding assistant.
 - Use Reference Writing when the user wants to convert informal research logs into clean implementation-facing documents such as model design, loss design, dataset protocol, diagnostic reference, or training design.
 - Use Literature Survey when the user wants a topic surveyed, prior work dug up, a batch of papers turned into review notes, or a deep-research prompt generated for an external tool. Distinguishes itself from Research Discussion's casual paper lookup by producing artifacts (per-paper notes, survey synthesis, reusable prompts) under the academic search discipline.
-- Use Academic Presentation Writing when the user wants to build slides for a talk (lab meeting, conference, defense) from a research backbone + loose notes. The human owns the story; the AI does logic-gap checking, slide text, diagram redraw, and figure proofread. Format-agnostic output (Beamer / Keynote).
+- Use Academic Presentation Writing when the user wants to build, rewrite, or review slides for a talk (lab meeting, conference, defense) from a research backbone + loose notes. The human owns the story; the AI does logic-gap checking, slide text, diagram redraw, and figure proofread. Resolve and read the workspace's presentation style contract before any presentation work, as required by `references/academic-presentation-writing.md`. Format-agnostic output (Beamer / Keynote).
 
 Load the relevant reference file for the selected mode:
 
