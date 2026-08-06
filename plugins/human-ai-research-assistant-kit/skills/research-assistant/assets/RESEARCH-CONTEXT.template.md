@@ -36,7 +36,10 @@
 
 <!-- Each paper/presentation project: location, link mechanism (symlink to
      an independent git repo?), and what editing a linked path really
-     edits. -->
+     edits. Add the presentation style contract path used by this
+     workspace, or explicitly say none exists. If several style contracts
+     exist, map each project / venue / audience / medium to one. Keep live
+     slides and posters distinct. -->
 
 ## Code & compute
 
