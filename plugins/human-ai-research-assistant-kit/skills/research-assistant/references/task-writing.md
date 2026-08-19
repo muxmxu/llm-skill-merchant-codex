@@ -162,6 +162,3 @@ Objective, checkable conditions. Every item must be verifiable from the delivera
 10. No extra commentary inside the markdown artifact.
 11. Keep task artifacts dispatch-agnostic. Do not put transport, manifest, acknowledgement, report, result-signal, watcher, or gate definitions in the task. When execution is explicitly approved, finalize and hash the task first; then create the separate immutable dispatch manifest defined by `task-dispatch.md`.
 12. Never edit a dispatched task to add runtime status or results. Authority, gate, waiver, delivery, and heartbeat mechanics are normative only in `task-dispatch.md`.
-
-`../assets/code-agent-task-template.md` is a copy of the schema above. Keep its
-headings and fields synchronized with this normative template.

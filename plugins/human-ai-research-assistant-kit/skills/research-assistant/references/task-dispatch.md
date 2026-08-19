@@ -152,6 +152,8 @@ positive decimal revisions, and 64-character lowercase hexadecimal hashes.
 Send the fixed command and each argument through a native argv or structured
 API. Do not build a shell command, interpolate values into shell source, use
 `eval`, or permit free-form payload text.
+`assets/task-dispatch/validate-kickoff.sh` validates every field against these
+whitelists and prints the safe payload line.
 
 ## Executor handshake and revision changes
 

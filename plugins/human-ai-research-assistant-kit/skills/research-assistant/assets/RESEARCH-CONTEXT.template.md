@@ -89,3 +89,23 @@ Watcher:
 Execution workspace:
 - batch-directory and branch conventions
 -->
+
+## Comment-revision adapters & roadmaps
+
+<!-- Optional; required only when the comment-revision cycle is used.
+
+Roadmaps:
+- directory + naming convention for mutable revision-roadmap files
+- directory + naming convention for immutable decision snapshots
+
+Concrete source adapters:
+- source type (review panel, PDF annotations, email, typed notes)
+- adapter path or command
+- emitted tuple: quoted comment, anchor, author, date
+
+Manuscript verification:
+- baseline identity convention (commit plus dirty-diff hash when applicable)
+- build/compile command or pointer to the paper repo's own runbook
+
+Protocol: references/comment-revision-cycle.md
+-->

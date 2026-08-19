@@ -65,6 +65,7 @@ skill reads it, it does not parse it mechanically.
 
 ```
 ## Dispatch & code agents
+## Comment-revision adapters & roadmaps
 ```
 
 Required only by the dispatch protocol (`task-dispatch.md` /
@@ -93,6 +94,22 @@ A bus is the default when configured, but it is not mandatory for a direct
 transport explicitly approved by authenticated human authority. Dispatch
 requested but this section or a required field is missing → ask the human;
 never improvise endpoints, transport, or authority.
+
+`## Comment-revision adapters & roadmaps` is required only by
+`comment-revision-cycle.md`; other modes ignore it. It must define:
+
+- the directory and naming convention for mutable roadmaps;
+- the directory and naming convention for immutable decision snapshots;
+- every concrete comment-source adapter in this workspace, including its path
+  or command and the normalized tuple it emits;
+- how to identify a manuscript baseline, including a dirty-worktree diff hash
+  when the workspace permits uncommitted review edits; and
+- the build/compile command, or a pointer to the paper repository runbook that
+  owns it.
+
+Comment revision requested but this section or a required fact is missing →
+ask the human for the missing workspace fact. Do not hardcode an adapter,
+storage path, manuscript root, or build command in the reusable skill.
 
 ## Section semantics
 
@@ -125,6 +142,10 @@ never improvise endpoints, transport, or authority.
   indexes those runbooks; it never duplicates their content.
 - **Discussion archive** — where multi-agent/human discussions are archived
   and the per-agent file convention that applies.
+- **Comment-revision adapters & roadmaps** — where mutable revision roadmaps
+  and immutable decision snapshots live, which workspace-specific adapters
+  normalize reviewer comments, how manuscript baselines are identified, and
+  where the manuscript verification command is defined.
 
 ## Genericity rule
 
