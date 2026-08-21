@@ -1,6 +1,6 @@
 {
   "name": "multi-agent-discussion",
-  "version": "1.0.0+codex.1",
+  "version": "1.0.0+codex.20260821",
   "description": "File-based structured debate between multiple AI agents and a human, with evidence labels and human-arbitrated convergence.",
   "author": {
     "name": "mux"

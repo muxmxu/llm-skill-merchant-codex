@@ -112,8 +112,11 @@ disagreement to the human instead of looping.
 
 A workspace may define `ORCHESTRATION.md` to record human-owned preferences for
 which task types should stay in the main session, use sub-agents, require an
-independent reviewer, or use an external endpoint. Treat it as a policy table,
-not as methodology.
+independent reviewer, or use an external endpoint. Resolve it per the
+research-assistant SKILL.md contract-directory order: an explicit pointer in
+`RESEARCH-CONTEXT.md`, then
+`merchant_skill_contract/HUMAN-AI-RA-CONTRACT/`, then the workspace root as a
+legacy fallback. Treat it as a policy table, not as methodology.
 
 Recommended columns:
 

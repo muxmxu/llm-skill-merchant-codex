@@ -1,0 +1,16 @@
+{
+  "name": "slack-message",
+  "version": "0.1.0+codex.20260821",
+  "description": "Slack message drafting for manual sending: audience-register-driven drafting with workspace-local recipient profiles. Drafting only; never sends.",
+  "author": { "name": "mux" },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Slack Message Drafting",
+    "shortDescription": "Draft Slack messages without sending them.",
+    "longDescription": "Resolve recipient-specific tone rules and produce plain-text-safe Slack drafts for the user to review and send manually.",
+    "developerName": "mux",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read"],
+    "defaultPrompt": ["Draft a Slack message for this recipient.", "Rewrite this Slack reply without sending it."]
+  }
+}

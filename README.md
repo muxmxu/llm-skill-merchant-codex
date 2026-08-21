@@ -13,6 +13,9 @@ plugins and collaboration rules.
 codex plugin marketplace add LinhMuks-DFox/llm-skill-merchant-codex
 codex plugin add human-ai-code-agent-kit@llm-skill-merchant-codex
 codex plugin add human-ai-research-assistant-kit@llm-skill-merchant-codex
+codex plugin add slack-message@llm-skill-merchant-codex
+codex plugin add agent-workspace@llm-skill-merchant-codex
+codex plugin add magi@llm-skill-merchant-codex
 codex plugin add multi-agent-discussion@llm-skill-merchant-codex
 ```
 
@@ -25,7 +28,10 @@ new thread.
 | Plugin | Skills | Purpose |
 |---|---|---|
 | `human-ai-code-agent-kit` | `impl`, `exp`, `eval`, `ops`, `codebase-snapshot` | Implementation, experiment lifecycle, evaluation, compute operations, and read-only code inspection. |
-| `human-ai-research-assistant-kit` | `research-assistant` | Research discussion, explanation, logs, decisions, tasks, references, literature surveys, presentations, and gated reviewer-comment-to-manuscript revision. |
+| `human-ai-research-assistant-kit` | `research-assistant` | Research discussion, explanation, logs, decisions, tasks, references, literature surveys, presentations, paper co-writing, venue-anchored review, and gated reviewer-comment-to-manuscript revision. |
+| `slack-message` | `slack-message-drafting` | Recipient-aware Slack drafting for manual sending; never posts messages. |
+| `agent-workspace` | `agent-workspace` | Per-task `worklog.md`, `STATUS.md`, and `HANDOFF.md` continuity records. |
+| `magi` | `magi` | Evidence-audited decision council with human arbitration. Claude command and Workflow wrappers are not included. |
 | `multi-agent-discussion` | `multi-agent-discussion` | File-based, multi-round research debate with human arbitration. |
 
 Project-specific facts remain in project runbooks such as `ROLE.txt`,
@@ -41,9 +47,9 @@ orchestration, authenticated execution authority, immutable dispatch records,
 shared-worktree rules, and the resumable literature-survey pipeline. Claude
 Workflow JavaScript templates are not carried into this repo.
 
-Sync 2026-08-19 tracks Claude marketplace commit `9dea1c1`: paper-co-writing
-mode (9th) + author-contract template ported verbatim (host-agnostic); SKILL.md
-renamed, deduplicated, and re-ordered to match; orphaned
-`assets/code-agent-task-template.md` removed on both sides; a Codex-grammar
-`validate-kickoff.sh` written against this repo's dispatch manifest fields
-(not a copy of the Claude one).
+Sync 2026-08-21 tracks Claude marketplace commit `908d992`: Venue Review mode
+(10th), contract-directory resolution, paper co-writing bias countermeasures,
+source-constrained research-log transformation, and the `agent-workspace`,
+`magi`, and `slack-message` plugins. Claude-only command files and Workflow
+JavaScript are intentionally replaced by Codex skill or collaboration rules;
+Codex-specific dispatch, validation, and plugin metadata remain local.
