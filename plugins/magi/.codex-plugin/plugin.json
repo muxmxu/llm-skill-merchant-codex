@@ -1,8 +1,10 @@
 {
   "name": "magi",
-  "version": "1.0.0+codex.20260821",
-  "description": "MAGI decision council for Codex research work: frame one decidable proposition, deliberate through orthogonal evidence/cost/evaluation lenses, audit every reason, red-team unanimity, and report a human-arbitrated tally.",
-  "author": { "name": "mux" },
+  "version": "1.0.0+codex.20260914020306",
+  "description": "suit-for-ai-research-assistant: A formal decision council requested by the user, with blind deliberation, source audits, red-team review, and final human arbitration. Ordinary opinions remain discussion.",
+  "author": {
+    "name": "mux"
+  },
   "skills": "./skills/",
   "interface": {
     "displayName": "MAGI Decision Council",
@@ -10,7 +12,14 @@
     "longDescription": "Turn should-we decisions into a bounded council report without confusing a model tally with the human's ruling.",
     "developerName": "mux",
     "category": "Productivity",
-    "capabilities": ["Interactive", "Read", "Write"],
-    "defaultPrompt": ["Convene a MAGI council on this decision.", "Pressure-test whether we should do this."]
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Convene a MAGI council on this decision.",
+      "Pressure-test whether we should do this."
+    ]
   }
 }

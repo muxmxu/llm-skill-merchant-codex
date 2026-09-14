@@ -1,7 +1,7 @@
 {
   "name": "human-ai-research-assistant-kit",
-  "version": "1.3.0+codex.20260821",
-  "description": "AI Research Assistant workflows for discussion, explanation, research logs, decisions, tasks, references, literature surveys, presentations, collaborative paper writing under a workspace author contract (PAPER-WRITING-CONTRACT.md), venue-anchored simulated review, and gated reviewer-feedback revision cycles.",
+  "version": "1.3.0+codex.20260914020306",
+  "description": "suit-for-ai-research-assistant: Evidence-grounded research discussion and writing through ten modes plus speaker-card preparation. Guided execution is the default; author decisions and source constraints remain mandatory.",
   "author": {
     "name": "mux"
   },

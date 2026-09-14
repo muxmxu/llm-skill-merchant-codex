@@ -1,8 +1,10 @@
 {
   "name": "agent-workspace",
-  "version": "1.0.0+codex.20260821",
-  "description": "Per-task self-tracking convention for Codex research and code-agent work: every substantive task gets an agent_workspace/{YYYY-M-D}-{topic}/ directory holding worklog.md, STATUS.md, and HANDOFF.md.",
-  "author": { "name": "mux" },
+  "version": "1.0.0+codex.20260914020306",
+  "description": "Maintain continuity records for resumable, formally delegated, or explicitly tracked work. Reuse existing task directories; short self-contained tasks need no new records.",
+  "author": {
+    "name": "mux"
+  },
   "skills": "./skills/",
   "interface": {
     "displayName": "Agent Workspace",
@@ -10,7 +12,14 @@
     "longDescription": "Keep worklog, status, and handoff records current so another session or agent can resume multi-step work without reconstructing history.",
     "developerName": "mux",
     "category": "Productivity",
-    "capabilities": ["Interactive", "Read", "Write"],
-    "defaultPrompt": ["Start or resume the task workspace for this work.", "Update the task status and handoff."]
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Start or resume the task workspace for this work.",
+      "Update the task status and handoff."
+    ]
   }
 }

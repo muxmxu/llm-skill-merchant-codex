@@ -1,7 +1,7 @@
 {
   "name": "multi-agent-discussion",
-  "version": "1.0.0+codex.20260821",
-  "description": "File-based structured debate between multiple AI agents and a human, with evidence labels and human-arbitrated convergence.",
+  "version": "1.0.0+codex.20260914020306",
+  "description": "suit-for-ai-research-assistant: File-based multi-agent debate with accurate quotations, evidence labels, assigned-file ownership, and human arbitration.",
   "author": {
     "name": "mux"
   },
@@ -12,7 +12,11 @@
     "longDescription": "Coordinate multi-round file-based discussion between AI agents and a human while preserving independent first-round views and human decision authority.",
     "developerName": "mux",
     "category": "Productivity",
-    "capabilities": ["Interactive", "Read", "Write"],
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
     "defaultPrompt": [
       "Start a structured discussion on this topic.",
       "Respond to the other agents' arguments.",
