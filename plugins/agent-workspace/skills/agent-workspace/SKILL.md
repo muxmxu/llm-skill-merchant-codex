@@ -1,6 +1,6 @@
 ---
 name: agent-workspace
-description: "<suit-for-ai-research-assistant> <suit-for-code-agent> keep a per-task self-tracking directory — agent_workspace/{YYYY-M-D}-{topic}/ holding worklog.md, STATUS.md, and HANDOFF.md — so a later session, a different agent, or the human can pick the work up cold. Trigger when starting substantive multi-step work, when resuming earlier work in a fresh session, after the human rules on something or changes direction, when a dispatched job reports back, when the user asks where things stand or asks for a handoff, and before a session ends or context is compacted. Not for trivial one-off questions."
+description: "Maintain worklog.md, STATUS.md, and HANDOFF.md for resumable or delegated work. Use when continuing a tracked task, preparing a handoff, or preserving work across sessions. Ordinary conversation and short self-contained tasks need no new directory."
 ---
 
 # agent-workspace — per-task self-tracking
@@ -18,6 +18,17 @@ back to it days later. Write for them.
 
 Both sides of the three-party model keep these records, in the same shape: an
 AI research assistant and a code / implementation agent alike.
+
+## Applicability
+
+Use an existing task directory when continuing that task. Create a new one for
+work expected to span sessions, a formal delegated execution, an explicit
+handoff/record request, or a project requirement. Short self-contained tasks
+and ordinary discussion create no directory solely because tools are used.
+The write triggers below apply after this applicability check. Preserve the
+existing three-file convention and user-decision history for tracked work.
+Do not modify .gitignore merely to activate this skill; follow the project's
+existing scratch policy, or report the missing policy before persisting records.
 
 ## The directory
 
@@ -69,7 +80,7 @@ because the stale ones are still trusted.
 
 | Trigger | Action |
 |---|---|
-| **T1 — work starts** | Create the directory. `STATUS.md` first version and the first `worklog.md` entry. On the first directory in a repository, check that `agent_workspace/` is in `.gitignore`. |
+| **T1 — work starts** | Create the directory. `STATUS.md` first version and the first `worklog.md` entry. On the first directory in a repository, check the existing scratch/ignore policy. |
 | **T2 — the human rules on something or changes direction** | Append to `worklog.md` immediately, quoting the human verbatim with `>`. Update `STATUS.md`'s next-step section. |
 | **T3 — a deliverable unit lands** | Append to `worklog.md`; edit only the changed parts of `STATUS.md`. |
 | **T4 — something fails** | Record it in `worklog.md` at the time it happens. Do not clean it up afterwards. |
@@ -132,7 +143,7 @@ current step and the next action.
 - Follow an existing batch or directory convention while keeping the three
   files distinct.
 - `agent_workspace/` is ignored by the host repository by default. If it is
-  not listed in `.gitignore`, add it.
+  not listed in `.gitignore`, follow the existing scratch policy or report the gap; do not add it automatically.
 - The directory may be its own repository when the human wants its history
   kept; such commits are separate from the host repository.
 - Write in the workspace's working language. Existing directories are the

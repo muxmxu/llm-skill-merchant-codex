@@ -53,3 +53,27 @@ source-constrained research-log transformation, and the `agent-workspace`,
 `magi`, and `slack-message` plugins. Claude-only command files and Workflow
 JavaScript are intentionally replaced by Codex skill or collaboration rules;
 Codex-specific dispatch, validation, and plugin metadata remain local.
+
+## Cross-model compatibility and maintenance
+
+The shared execution contract defaults to guided execution for Luna and untested
+model/workflow pairs. Opus, Astra, and other names do not automatically select a
+shorter profile or waive evidence, authorization, or human-review requirements.
+Keep the detailed mode references. Compact execution is an explicit opt-in.
+
+Skill descriptions use plain role labels (`suit-for-code-agent:` or
+`suit-for-ai-research-assistant:`) rather than XML-like role tags. Put the
+requested outcome first; mode details belong in the selected reference.
+
+Before publishing, run `python3 scripts/check_skills.py` and, when both source
+repositories are available, add `--peer /path/to/the/other/repo`. Review the
+limited parity map in `docs/compatibility-sync.json`; it is not a claim that
+all platform-specific files are identical. Run the behavioral cases in
+`evals/compatibility/cases.json` in isolated sessions for each model used.
+Structural validation is not proof of behavioral compatibility. Record the
+model/runtime, profile, source revision, result, latency, and token usage;
+leave untested model rows unverified.
+
+Keep workflow requirements shared; retain each host's manifests, invocation,
+subagent, transport, and permission adapters. Do not copy Claude Workflow
+scripts into Codex or replace the human-owned model dispatch table.
