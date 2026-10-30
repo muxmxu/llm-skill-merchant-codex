@@ -279,3 +279,7 @@ checks. It does not modify code, perform production execution, or duplicate an
 assigned endpoint. An implementation-assigned tmux remains an implementation
 endpoint; an idle or separately assigned code agent may serve a bounded
 Codebase Snapshot request.
+
+Resolve reviewer role preferences from the workspace `ORCHESTRATION.md` when
+provided, subject to available Codex model and effort controls. Do not claim a
+model assignment the runtime did not expose.

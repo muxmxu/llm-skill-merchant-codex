@@ -23,7 +23,9 @@ For non-trivial work, the main session coordinates a six-phase loop:
    raw sources rather than agent summaries.
 6. **Report** - the main session integrates one result and reports deviations.
 
-Small requests stay in the main session. If collaboration tools are absent or
+Follow a workspace `ORCHESTRATION.md` when it defines its own direct and
+orchestrated mode boundary and loop. Otherwise small requests stay in the main
+session. If collaboration tools are absent or
 the units are tightly coupled, run the same phases serially without treating
 that as a degraded result.
 
@@ -90,8 +92,8 @@ main-session self-check is labeled `self-review` and is not silently equivalent
 to independent review. Gate release and waiver rules live in
 `task-dispatch.md`.
 
-Limit rework to two rounds for the same finding. Escalate a persistent
-disagreement to the human instead of looping.
+Limit rework to two rounds for the same finding. Follow a workspace replan and escalation ladder when defined; otherwise escalate
+a persistent disagreement to the human instead of looping.
 
 ## Research-specific boundaries
 
@@ -116,7 +118,10 @@ independent reviewer, or use an external endpoint. Resolve it per the
 research-assistant SKILL.md contract-directory order: an explicit pointer in
 `RESEARCH-CONTEXT.md`, then
 `merchant_skill_contract/HUMAN-AI-RA-CONTRACT/`, then the workspace root as a
-legacy fallback. Treat it as a policy table, not as methodology.
+legacy fallback. A native role and loop table is authoritative for its
+covered roles and methodology; use the defaults in this reference where it is
+silent. A version marker is optional, not a prerequisite. Respect runtime
+constraints on delegation, model selection, and authorization.
 
 Recommended columns:
 

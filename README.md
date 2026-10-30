@@ -77,3 +77,7 @@ leave untested model rows unverified.
 Keep workflow requirements shared; retain each host's manifests, invocation,
 subagent, transport, and permission adapters. Do not copy Claude Workflow
 scripts into Codex or replace the human-owned model dispatch table.
+
+Claude marketplace updates through `7bc53af` are adapted for Codex, including
+the date-only delivery bus layout, self-contained questions, and workspace
+orchestration contracts. Codex runtime and authorization rules still apply.

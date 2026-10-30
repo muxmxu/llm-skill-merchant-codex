@@ -10,6 +10,13 @@ repository's own rules and runbooks.
 
 ## Receive and acknowledge
 
+On a delivery bus, use `progress/<YYYY-M-D>/` (date only), with
+`progress0.md` through `progress<N>.md` numbered in creation order,
+`tasks/<NN>-<topic>.md` numbered across the date, and per-entry evidence in
+`reference/progress<N>/`. Read the progress entry identified by the task’s
+`parent_authority_ref` before the task, while retaining the manifest and
+immutable authority verification below.
+
 - Accept a task only through the configured delivery bus or an explicitly
   approved direct transport. Read the dispatch manifest, then the immutable
   task bytes it identifies.

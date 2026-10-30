@@ -127,3 +127,7 @@ For task-writing, use the strict template and rules in `references/task-writing.
 For decision-writing, preserve structure but keep it concise and implementation-relevant.
 
 Research Discussion produces no file or artifact by default — it is conversation. When thinking converges, offer to capture it into one of the four writing modes; do not auto-write.
+
+Workspace `ORCHESTRATION.md` may define a native role and loop table; apply it
+where compatible with the live Codex runtime and higher-priority instructions.
+See `references/ra-orchestration-mode.md` for resolution.
