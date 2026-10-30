@@ -230,3 +230,7 @@ declared completion report and emits the parent result signal.
 Integration ownership still does not authorize staging, commit, or push. Run
 `impl check` on the final tree before an explicitly authorized commit. Commit
 and push each require separate authenticated authority.
+
+Workspace `ORCHESTRATION.md` may use a native role and loop table. Resolve it
+through the research-assistant orchestration reference, subject to runtime
+capabilities and higher-priority instructions.

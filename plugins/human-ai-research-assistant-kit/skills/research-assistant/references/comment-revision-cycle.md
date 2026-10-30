@@ -240,8 +240,8 @@ Every comment is exactly one of:
 ## Roadmap file location
 
 One roadmap file per review batch. Do not use a fixed name; suggest
-`revision-roadmap-<YYYY-MM-DD>.md`, or under a progress dir if the workspace
-uses one: `progress/YYYY-MM-DD_<topic>/revision-roadmap.md`. Put immutable
+`revision-roadmap-<YYYY-MM-DD>.md`, or on a delivery bus:
+`progress/<YYYY-M-D>/reference/progress<N>/revision-roadmap.md`. Put immutable
 decision snapshots beside it with a revisioned name such as
 `revision-roadmap-<YYYY-MM-DD>-decision-v1.md`. Record both path conventions
 in `RESEARCH-CONTEXT.md` (see "Adapters") so cold handoff can resolve them
