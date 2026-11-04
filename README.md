@@ -17,6 +17,7 @@ codex plugin add slack-message@llm-skill-merchant-codex
 codex plugin add agent-workspace@llm-skill-merchant-codex
 codex plugin add magi@llm-skill-merchant-codex
 codex plugin add multi-agent-discussion@llm-skill-merchant-codex
+codex plugin add tg-ask@llm-skill-merchant-codex
 ```
 
 For local development, register the checkout path instead of the GitHub source.
@@ -33,6 +34,8 @@ new thread.
 | `agent-workspace` | `agent-workspace` | Per-task `worklog.md`, `STATUS.md`, and `HANDOFF.md` continuity records. |
 | `magi` | `magi` | Evidence-audited decision council with human arbitration. Claude command and Workflow wrappers are not included. |
 | `multi-agent-discussion` | `multi-agent-discussion` | File-based, multi-round research debate with human arbitration. |
+
+| `tg-ask` | `tg-ask` | Telegram relay shared by Claude and Codex tmux sessions, with setup, health check, and teardown via the skill. Codex hooks require trust; without usable hooks, `/watch` shows screen state only. |
 
 Project-specific facts remain in project runbooks such as `ROLE.txt`,
 `RESEARCH-CONTEXT.md`, `EXPERIMENTS.md`, `EVALUATION.md`, and `OPERATIONS.md`.

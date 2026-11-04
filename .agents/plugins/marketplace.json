@@ -75,6 +75,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "tg-ask",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tg-ask"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }

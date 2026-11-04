@@ -1,0 +1,25 @@
+{
+  "name": "tg-ask",
+  "version": "0.2.0",
+  "description": "Telegram relay for unattended Claude and Codex sessions in tmux.",
+  "author": {
+    "name": "llm-skill-merchant maintainers"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Telegram Ask",
+    "shortDescription": "Reach the human from tmux sessions.",
+    "longDescription": "Share one Telegram relay between Claude and Codex sessions.",
+    "developerName": "llm-skill-merchant maintainers",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Set up tg-ask.",
+      "Run the tg-ask health check."
+    ]
+  }
+}
