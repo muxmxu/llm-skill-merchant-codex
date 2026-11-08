@@ -45,7 +45,9 @@ Workspace facts (vault paths, literature library, note spaces, code repos) live 
 merchant_skill_contract/HUMAN-AI-RA-CONTRACT/
 ```
 
-Resolution order for any such contract: (1) an explicit pointer in `RESEARCH-CONTEXT.md` wins; (2) the contract directory above; (3) legacy fallback — the workspace root. When a contract is found only at a legacy location, use it and propose migrating it into the contract directory once; do not silently duplicate it.
+Resolution order for any such contract: (1) an explicit pointer in `RESEARCH-CONTEXT.md` wins; (2) the contract directory above; (3) legacy fallback — the workspace root; (4) the **user-level contract directory** — `~/.codex/contracts/`, or the location the user's global instructions declare. When a contract is found only at a legacy location, use it and propose migrating it into the contract directory once; do not silently duplicate it.
+
+The user-level directory holds contracts that describe the user rather than one project (typically `ORCHESTRATION.md` and `SLACK-MESSAGE-TONE.md`), so the same rules apply in every workspace, including one with no `RESEARCH-CONTEXT.md`. A workspace copy found at steps 1–3 overrides it. Project-bound contracts (paper, presentation, research-log use, venue checklists, node SOP) are not looked up at step 4.
 
 ## Research Assistant Orchestration Workmode
 

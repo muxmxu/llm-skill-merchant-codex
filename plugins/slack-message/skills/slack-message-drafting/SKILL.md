@@ -17,11 +17,14 @@ is always text the user sends manually.
 
 ## Tone resolution
 
-1. Read the workspace's `SLACK-MESSAGE-TONE.md`. Look first at
-   `merchant_skill_contract/SLACK-MESSAGE-CONTRACT/SLACK-MESSAGE-TONE.md`, then
-   the workspace root as a legacy location. Its recipient profiles and shared
+1. Read `SLACK-MESSAGE-TONE.md`. Look first at
+   `merchant_skill_contract/SLACK-MESSAGE-CONTRACT/SLACK-MESSAGE-TONE.md` under
+   the workspace root, then the workspace root as a legacy location, then the
+   user-level contract directory `~/.codex/contracts/` (or the location the
+   user's global instructions declare). A workspace copy overrides the
+   user-level one. Its recipient profiles and shared
    formatting rules override the defaults below.
-2. If the file exists at neither location, say so. Offer to create it from
+2. If the file exists at none of these locations, say so. Offer to create it from
    `assets/SLACK-MESSAGE-TONE.template.md`; for the current draft ask only for
    the recipient, language, expected length, and politeness.
 

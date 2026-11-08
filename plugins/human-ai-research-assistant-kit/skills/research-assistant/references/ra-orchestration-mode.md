@@ -118,7 +118,8 @@ independent reviewer, or use an external endpoint. Resolve it per the
 research-assistant SKILL.md contract-directory order: an explicit pointer in
 `RESEARCH-CONTEXT.md`, then
 `merchant_skill_contract/HUMAN-AI-RA-CONTRACT/`, then the workspace root as a
-legacy fallback. A native role and loop table is authoritative for its
+legacy fallback, then the user-level contract directory `~/.codex/contracts/`.
+A workspace copy overrides the user-level one. A native role and loop table is authoritative for its
 covered roles and methodology; use the defaults in this reference where it is
 silent. A version marker is optional, not a prerequisite. Respect runtime
 constraints on delegation, model selection, and authorization.
