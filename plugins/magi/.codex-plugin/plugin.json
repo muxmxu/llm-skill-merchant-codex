@@ -1,6 +1,6 @@
 {
   "name": "magi",
-  "version": "1.0.0+codex.20260914020306",
+  "version": "1.0.1+codex",
   "description": "suit-for-ai-research-assistant: A formal decision council requested by the user, with blind deliberation, source audits, red-team review, and final human arbitration. Ordinary opinions remain discussion.",
   "author": {
     "name": "llm-skill-merchant maintainers"

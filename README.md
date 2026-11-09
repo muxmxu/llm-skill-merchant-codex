@@ -42,15 +42,15 @@ Project-specific facts remain in project runbooks such as `ROLE.txt`,
 
 ## Source relationship
 
-The initial migration tracks Claude marketplace commit `2687b2f`; the
-comment-revision cycle is ported from Claude commit `8b1cb4d`. Functional
+The initial migration and the comment-revision cycle are ported from the
+Claude marketplace. Functional
 content is preserved except where the host contract differs. Intentional Codex
 adaptations include plugin manifests, role-tag syntax, collaboration-tool
 orchestration, authenticated execution authority, immutable dispatch records,
 shared-worktree rules, and the resumable literature-survey pipeline. Claude
 Workflow JavaScript templates are not carried into this repo.
 
-Sync 2026-08-21 tracks Claude marketplace commit `908d992`: Venue Review mode
+A later sync adds Venue Review mode
 (10th), contract-directory resolution, paper co-writing bias countermeasures,
 source-constrained research-log transformation, and the `agent-workspace`,
 `magi`, and `slack-message` plugins. Claude-only command files and Workflow
@@ -81,6 +81,6 @@ Keep workflow requirements shared; retain each host's manifests, invocation,
 subagent, transport, and permission adapters. Do not copy Claude Workflow
 scripts into Codex or replace the human-owned model dispatch table.
 
-Claude marketplace updates through `7bc53af` are adapted for Codex, including
+Later Claude marketplace updates are adapted for Codex, including
 the date-only delivery bus layout, self-contained questions, and workspace
 orchestration contracts. Codex runtime and authorization rules still apply.
