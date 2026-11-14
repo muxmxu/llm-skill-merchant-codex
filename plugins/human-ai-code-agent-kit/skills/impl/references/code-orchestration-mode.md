@@ -20,14 +20,19 @@ This contract governs multi-agent work inside an AI Code Agent executing an
 - The **external tier-1 orchestrator** belongs to the Research Assistant side.
   After dispatch it supervises read-only and does not implement the task.
 - The **internal implementation orchestrator** is the executor main session.
-  It may perform authorized integration edits, validation, and reporting
-  within the parent implementation scope.
+  It performs validation and reporting within the parent implementation
+  scope, and may perform integration edits when the resolved workspace
+  contract permits it. If that contract bars this executor session from
+  producing substantive artifacts, it retains integration ownership and
+  dispatches the integration pass to one named integration agent, which is the
+  sole final-tree writer.
 - A **module agent** owns one bounded assignment. It never owns the parent
   task or its completion state.
 
 Main-session ownership identifies the single integration owner. It grants no
-new authority. This mode never authorizes staging, commit, push, remote
-operations, scope expansion, or destructive cleanup.
+new authority. The integration pass follows the resolved workspace contract's
+review and audit roles. This mode never authorizes staging, commit, push,
+remote operations, scope expansion, or destructive cleanup.
 
 ## Activation and phases
 
@@ -48,8 +53,9 @@ Run these phases:
 3. **Implement** — run only ready modules with disjoint writes and resources.
 4. **Verify** — bind semantic and mechanical evidence to exact attempts and
    code identities.
-5. **Integrate** — stop writers, reconcile the final tree, and run current-tree
-   module plus end-to-end checks.
+5. **Integrate** — stop writers, then use the single authorized final-tree
+   writer (the executor main session or its named integration agent) to
+   reconcile the tree and run current-tree module plus end-to-end checks.
 6. **Report** — release `COMPLETE`, `BLOCKED`, or `INCOMPLETE` under the rules
    below.
 
@@ -179,8 +185,10 @@ inspect residual diffs and record what will be retained, repaired, or left
 untouched. Never blindly rerun a non-idempotent codemod, migration, generator,
 or external action. Safety, authorization, protected-zone, and project-hard-
 rule conflicts block immediately; they do not consume a retry round. After two
-failed correction attempts on the same issue, report the blocker unless the
-authenticated parent instruction explicitly authorizes another bounded try.
+failed correction attempts on the same issue, follow the resolved workspace
+`ORCHESTRATION.md` amendment and escalation rules when it defines them;
+otherwise report the blocker unless the authenticated parent instruction
+explicitly authorizes another bounded try.
 
 ## Verification and integration
 
@@ -194,9 +202,11 @@ authenticated parent instruction explicitly authorizes another bounded try.
 - A semantic review checks behavior, interfaces, scope, failure modes, and
   missing tests. Mechanical checks run the repository-required formatter,
   linter, type checker, and tests.
-- Stop all writers before final integration. The executor main is the only
-  integration writer. Recheck path ownership, inspect the complete diff, rerun
-  affected module checks on the final tree, then run end-to-end checks.
+- Stop all implementation writers before final integration. The executor main
+  or its one named integration agent is the only final-tree writer, as allowed
+  by the resolved workspace contract. Recheck path ownership, inspect the
+  complete diff, rerun affected module checks on the final tree, then run
+  end-to-end checks.
 - Never integrate a stale attempt, an unverified required module, or an
   unowned/unauthorized change.
 

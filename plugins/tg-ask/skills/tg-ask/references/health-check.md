@@ -2,11 +2,11 @@
 
 Script: `T="<tg-ask skill base directory>/scripts/tgask.py"`.
 
-1. Run `python3 "$T" health --fix $ARGUMENTS`. `--fix` starts the relay if it
+1. Run `python3 "$T" health --fix [user-supplied arguments]`. `--fix` starts the relay if it
    is down and restarts it if it runs an outdated copy of the script.
 2. Report a short table: each check, its level, and for anything not OK the
    cause and the exact fix:
-   - `setup`, `token`, `allowlist` FAIL → run `tg-ask setup`.
+   - `setup`, `token`, `allowlist` FAIL → run `tg-ask-setup`.
    - `plugin-conflict` FAIL → the human runs
      `/plugin disable telegram@claude-plugins-official` and `/reload-plugins`;
      if a stray `server.ts` remains, show its pid (`pgrep -fl server.ts`) and

@@ -5,10 +5,10 @@ Script: `T="<tg-ask skill base directory>/scripts/tgask.py"`.
 1. Show what exists: `python3 "$T" health` and `ls` of the state directory it
    reports under `setup`. Count open requests; if any are `sent` or
    `answered`, warn that their sessions will never get an answer.
-2. Ask the human which level they want (skip the question when $ARGUMENTS
-   already says it):
+2. Ask the human which level they want (skip the question when the human has
+   already specified it):
    - **stop** (default): stop the relay, make the hooks no-ops. History, token
-     and allowlist stay; `tg-ask setup` brings it back in one step.
+     and allowlist stay; `tg-ask-setup` brings it back in one step.
    - **purge**: also delete requests and hook event logs (`--purge`).
    - **forget-bot**: also delete the bot token and allowlist (`--forget-bot`).
      These files are shared with the official Telegram plugin; say so.

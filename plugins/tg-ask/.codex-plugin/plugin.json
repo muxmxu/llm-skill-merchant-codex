@@ -1,7 +1,7 @@
 {
   "name": "tg-ask",
-  "version": "0.2.1",
-  "description": "Telegram relay for unattended Claude and Codex sessions in tmux.",
+  "version": "0.2.2",
+  "description": "Telegram relay for unattended Claude and Codex sessions in tmux, with Codex-discoverable setup, health-check, and teardown skills.",
   "author": {
     "name": "llm-skill-merchant maintainers"
   },

@@ -1,6 +1,6 @@
 ---
 name: research-assistant
-description: "suit-for-ai-research-assistant: Discuss research and transform supplied evidence into logs, decisions, references, tasks, papers, or presentations. Use for research collaboration; choose the requested mode before loading its rules. Formal dispatch and review require that specific request."
+description: "suit-for-ai-research-assistant: Discuss research and transform supplied evidence into logs, decisions, references, tasks, papers, or presentations. Use for research collaboration; choose the requested mode before loading its rules. Use the research loop when explicitly requested for staged research and result backfill. Formal dispatch and review require that specific request."
 ---
 
 # Human-AI Research Assistant Kit
@@ -49,6 +49,13 @@ Resolution order for any such contract: (1) an explicit pointer in `RESEARCH-CON
 
 The user-level directory holds contracts that describe the user rather than one project (typically `ORCHESTRATION.md` and `SLACK-MESSAGE-TONE.md`), so the same rules apply in every workspace, including one with no `RESEARCH-CONTEXT.md`. A workspace copy found at steps 1–3 overrides it. Project-bound contracts (paper, presentation, research-log use, venue checklists, node SOP) are not looked up at step 4.
 
+**Research loop.** When the human explicitly requests a research loop for a
+specific topic or asks to resume one, read `references/research-loop.md` in
+full, skip Mode Selection, and resolve `RESEARCH-LOOP.md` per Doc Resolution.
+It chains existing modes and dispatch stages, records resumable STATUS, and
+stops at applicable human gates. It runs on the main session. A normal request
+for a discussion or a log alone does not authorize this pipeline or dispatch.
+
 ## Research Assistant Orchestration Workmode
 
 For a non-trivial task that benefits from decomposition, the main Codex
@@ -86,7 +93,10 @@ retaining these detailed recipes is required for all execution profiles.
 
 Additional workflows, only when requested or required by the selected mode:
 
+- `references/research-loop.md`: carry an explicitly requested topic through
+  staged research and result backfill.
 - `references/task-dispatch.md`: dispatch and supervise an execution task.
+- `references/node-handoff.md`: move research-workspace ownership between configured nodes, or take over work on this node. Load the full reference before acting. This workflow requires the project-bound `MULTI-NODE-SOP.md` and an explicit Codex request/authorization mapping in that contract; never infer node facts, command access, or approval from another host's rules.
 - `references/code-agent-execution.md`: the receiving executor's contract.
 - `references/comment-revision-cycle.md`: transform reviewer feedback into
   approved, executed, and verified manuscript changes.

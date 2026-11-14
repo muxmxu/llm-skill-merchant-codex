@@ -5,7 +5,7 @@ Read the tg-ask SKILL.md for what the tool does.
 Run every step in order, report each result in one line, and stop at the first
 failure with what the human must do.
 
-Argument: $ARGUMENTS
+Use any arguments explicitly supplied by the human.
 
 1. **Prerequisites.** `python3 --version` (3.8+) and `command -v tmux`. If tmux
    is missing, give the install command for this OS (`brew install tmux`,
@@ -16,13 +16,22 @@ Argument: $ARGUMENTS
    the human to run `/plugin disable telegram@claude-plugins-official` and
    `/reload-plugins`, then re-check. Its state files (`.env`, `access.json`)
    are reused, so a bot already configured there needs no new token.
-3. **Token.** If `health` shows `token OK`, skip. Otherwise, if no token was
-   given as the argument, tell the human: open @BotFather in Telegram, send
-   `/newbot`, pick a name and a username ending in `bot`, and paste the token.
-   Save it without putting it on a command line:
-   `printf '%s' '<token>' | python3 "$T" set-token`. Mention that the token is
-   now in this conversation's transcript and can be rotated with `/revoke` in
-   BotFather if that matters.
+3. **Token.** If `health` shows `token OK`, skip. Otherwise, if the human
+   needs a token, tell them to open @BotFather in Telegram, send `/newbot`, and
+   pick a name and a username ending in `bot`. In all cases, including when a
+   token was supplied earlier, have the human run the following in their own
+   terminal and enter the token at the hidden prompt. Replace the path placeholder
+   with the actual resolved installed script path before presenting the command;
+   do not put the token into this conversation or a command. The script verifies
+   the token with Telegram before saving it:
+
+   ```bash
+   T="<resolved installed tg-ask skill base directory>/scripts/tgask.py"
+   python3 -c 'import getpass; print(getpass.getpass("Bot token: "))' | python3 "$T" set-token
+   ```
+
+   If the token was already shared in this conversation, mention that it is in
+   the transcript and can be rotated with `/revoke` in BotFather.
 4. **Pairing.** If `health` shows `allowlist OK`, skip. Otherwise run
    `python3 "$T" pair-start`, show the human the code and the bot name, and ask
    them to send exactly that code to the bot from their own Telegram account.
@@ -39,7 +48,7 @@ Argument: $ARGUMENTS
    - Run long unattended work inside tmux; restart Codex sessions after enabling and trusting plugin hooks (needed for activity events); screen state remains available without hooks.
    - Telegram commands: `/ls`, `/watch <id>`, `/status <id>`, `/to <id> <text>`,
      `/key <id> <key>`, `/pending`, `/help`.
-   - Sessions reach the human with the `tg-ask` skill; `tg-ask health-check`
-     verifies everything before leaving; `tg-ask teardown` removes it.
+   - Sessions reach the human with the `tg-ask` skill; `tg-ask-health-check`
+     verifies everything before leaving; `tg-ask-teardown` removes it.
 
 Codex plugin hooks require the hooks feature and user trust of the plugin hook definitions. Follow the Codex hook trust prompt; do not edit global configuration on the user’s behalf. If hooks are unavailable or lack `TMUX_PANE`, `/watch` uses screen state only.

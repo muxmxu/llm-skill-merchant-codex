@@ -1,6 +1,6 @@
 {
   "name": "human-ai-research-assistant-kit",
-  "version": "1.4.5+codex",
+  "version": "1.6.0+codex",
   "description": "suit-for-ai-research-assistant: Evidence-grounded research discussion and writing through ten modes plus speaker-card preparation. Guided execution is the default; author decisions and source constraints remain mandatory.",
   "author": {
     "name": "llm-skill-merchant maintainers"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Human-AI Research Assistant Kit",
     "shortDescription": "Research thinking, writing, and dispatch workflows.",
-    "longDescription": "Transform informal research into logs, decisions, implementation tasks, references, literature surveys, presentations, evidence-grounded discussions, verified manuscript revisions from reviewer feedback, and protocol-governed paper co-writing with the author.",
+    "longDescription": "Transform informal research into logs, decisions, implementation tasks, references, literature surveys, presentations, evidence-grounded discussions, verified manuscript revisions from reviewer feedback, protocol-governed paper co-writing, resumable research loops, and contract-governed multi-node handoffs.",
     "developerName": "llm-skill-merchant maintainers",
     "category": "Productivity",
     "capabilities": [
