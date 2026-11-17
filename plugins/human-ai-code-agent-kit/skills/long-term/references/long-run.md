@@ -93,7 +93,9 @@ next step in STATUS.md.
    `decided.md`; the open cycle plan and phase plan; `LIFECYCLE.md`; the host
    contract; the orchestration contract sections the step needs. Under a node contract, run its
    start-of-work routine first.
-3. **Verify the baseline.** Fetch when the repository has a remote and the action is permitted by the runtime and applicable instructions; compare
+3. **Verify the baseline.** Fetch when the repository has a remote and the action is permitted by the runtime and applicable instructions; if the
+   fetch fails while offline, note it in the worklog and continue on local
+   refs. Compare
    the branch heads with what STATUS records. For every dispatch STATUS lists
    as running, check its real state with the host's task listing and stop or
    collect it before saying anything about it; a process listing is not
@@ -118,8 +120,11 @@ next step in STATUS.md.
    `<records dir>`; stage only `<records dir>`; search the staged diff for `<personal vocabulary>` and
    for generic patterns (home-directory paths, email
    addresses, non-loopback IP addresses); move any hit to `local.md` or
-   `human-inputs.md` and stage again; commit on the integration branch as
-   `records: <step>`. It is a local commit, so the Commit
+   `human-inputs.md` and stage again; verify `git diff -- <records dir>` is
+   empty so the pathspec commit matches the scanned index; commit on the
+   integration branch with
+   `git commit -m "records: <step>" -- <records dir>`, so unrelated staged
+   files are excluded. It is a local commit, so the Commit
    authorization gate applies: until an authorization is recorded, records are
    written and not committed. Code commits follow the same authorization.
    Under a node contract, run its end-of-work routine.
@@ -150,7 +155,14 @@ python3 <skill>/scripts/drive.py --state-dir <state dir> \
     [--notify "<notify command>"] -- <session command>
 ```
 
-Run it from the repository root, inside `<hosting>`. A Codex host may configure `codex exec -C <project-dir> ...` as its session command. Before starting, verify locally that authentication, plugin discovery, sandbox, approval behavior, and process ownership support the run. The driver inherits its environment and may send stop reasons to the notifier: limit credentials and authority, and validate the command and destination under applicable permissions. The driver uses POSIX `fcntl.flock`. Each round it:
+Run it from the repository root, inside `<hosting>`. It needs a POSIX system
+(macOS, Linux; on Windows, WSL) because it uses `fcntl` locks and process
+groups. A Codex host may configure `codex exec -C <project-dir> ...` as its
+session command. Before starting, verify locally that authentication, plugin
+discovery, sandbox, approval behavior, and process ownership support the run.
+The driver inherits its environment and may send stop reasons to the notifier:
+limit credentials and authority, and validate the command and destination
+under applicable permissions. Each round it:
 
 1. stops if STOP exists;
 2. after the first round, stops if the state is not `running` (the first

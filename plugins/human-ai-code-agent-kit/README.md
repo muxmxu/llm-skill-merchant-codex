@@ -44,6 +44,8 @@ impl init     # only if the project has no development-rules doc yet
 - **ops** — `init | start | connect | deploy | launch | watch | sync | release | incident | status | cost-check`
 - **impl** — `init | task | check`
 - **long-term** — `run | status | stop | init`
+- **code-handoff** — copy a clean task workspace to a human-named node after recording ownership and Git state.
+- **code-takeover** — verify a kickoff, restore the workspace and code, confirm ownership, and resume the next step.
 
 ## Safety philosophy
 

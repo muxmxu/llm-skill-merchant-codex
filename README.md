@@ -28,7 +28,7 @@ new thread.
 
 | Plugin | Skills | Purpose |
 |---|---|---|
-| `human-ai-code-agent-kit` | `impl`, `exp`, `eval`, `ops`, `codebase-snapshot` | Implementation, experiment lifecycle, evaluation, compute operations, and read-only code inspection, with contract-governed integration delegation. |
+| `human-ai-code-agent-kit` | `impl`, `exp`, `eval`, `ops`, `codebase-snapshot`, `long-term`, `code-handoff`, `code-takeover` | Implementation, experiments, evaluation, compute operations, inspection, long-term runs, and node handoff. |
 | `human-ai-research-assistant-kit` | `research-assistant` | Research discussion, explanation, logs, decisions, tasks, references, literature surveys, presentations, paper co-writing, venue-anchored review, gated reviewer-comment-to-manuscript revision, resumable research loops, and contract-governed multi-node handoffs. |
 | `slack-message` | `slack-message-drafting` | Recipient-aware Slack drafting for manual sending; never posts messages. |
 | `agent-workspace` | `agent-workspace` | Per-task `worklog.md`, `STATUS.md`, and `HANDOFF.md` continuity records. |
@@ -56,7 +56,9 @@ source-constrained research-log transformation, and the `agent-workspace`,
 `magi`, and `slack-message` plugins. Recent adapted updates add contract-governed
 multi-node handoff, a resumable research-loop pipeline with post-write log
 checks, and contract-driven integration delegation for implementation work.
-Codex-native setup, health-check, and teardown skills also expose the existing
+The code-agent kit now includes code-handoff and code-takeover and the 1.5.1
+long-term records and offline-fetch fixes. Codex-native setup, health-check,
+and teardown skills also expose the existing
 Telegram relay lifecycle. Claude-only command files and Workflow JavaScript
 are intentionally replaced by Codex skill or collaboration rules; Codex-specific
 dispatch, validation, and plugin metadata remain local.
