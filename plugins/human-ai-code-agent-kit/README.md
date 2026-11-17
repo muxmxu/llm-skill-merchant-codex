@@ -17,6 +17,7 @@ scripts, coding rules — lives in docs inside each project repo:
 | `eval` | `EVALUATION.md`   | strict (fixed H2 sections) |
 | `ops`  | `OPERATIONS.md`   | loose (capability checklist) |
 | `impl` | development-rules doc (e.g. `ProjectDevelopRule.md`) | loose (capability checklist) |
+| `long-term` | `LIFECYCLE.md` and private host contract | strict (lifecycle v1) |
 
 A skill reads its doc at invocation time and executes "per the doc". When the
 project's procedures change, **update the doc, never the skill**. If the doc
@@ -42,6 +43,7 @@ impl init     # only if the project has no development-rules doc yet
 - **eval** — `init | run | compare | report`
 - **ops** — `init | start | connect | deploy | launch | watch | sync | release | incident | status | cost-check`
 - **impl** — `init | task | check`
+- **long-term** — `run | status | stop | init`
 
 ## Safety philosophy
 
